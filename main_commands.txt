@@ -1,0 +1,70 @@
+
+#Clone repository to local area
+>>> git clone git@github.com:CraigGroup/Intro-to-Version-Control.git
+>>>  cd Intro-to-Version-Control/
+#List infor about repository
+>>>  git remote -v
+#List all branches (local and remote)
+>>>  git branch -a
+#Make an edit
+>>>  emacs testcode.txt 
+#Check what changed
+>>>  git diff
+#Add everything to the queue
+>>>  git add -A
+>>>  git commit -m 'Added divide function'
+#Make sure that there were no changes to main (you may deal with merge errors if needed)
+>>>  git pull origin main
+#once conflicts are resolved (if any) push
+>>>  git push
+#Make sure it pushed.  Check GitHub
+>>>  git status
+
+#How to work in a branch
+#Make a new branch locally called calc-divide (you are still working in main!)
+>>>  git branch calc-divide
+#Check the branches
+>>>  git branch -a
+>>>  git branch
+#Make cal-divide your working branch
+>>>  git checkout calc-divide
+#If you wanted to delete the branch
+>>> git branch -d calc-divide
+#check to make sure you are now in calc-divide
+>>>  git branch
+#do your code developement and push to GitHub
+>>>  emacs -nw testcode.txt 
+>>>  git status
+>>>  git add -A
+>>>  git commit -m "changed divide function"
+>>>  git push -u origin calc-divide
+>>>  git branch -a
+
+#Move back to main branch
+>>>  git checkout main
+#check that you are in the main branch
+>>>  git branch
+#Make sure the main branch has not changed
+>>>  git pull origin main
+#Merge the branch with main
+>>>  git merge calc-divide
+#check that it was merged
+>>>  git branch --merged
+#Push origin to main ( could just to get push, but better to be manifest)
+>>>  git push origin main
+#Delete branch locally
+>>>  git branch -d calc-divide
+#check it
+>>>  git branch
+>>>  git branch -a
+#Delete the remote branch on GitHub and check it
+>>>  git push origin --delete calc-divide
+>>>  git branch -a
+#shows history of commits
+>>>  git log
+>>>  history 100
+
+
+Investigate these for backing out of a change
+>>> git reset
+>>> git revert
